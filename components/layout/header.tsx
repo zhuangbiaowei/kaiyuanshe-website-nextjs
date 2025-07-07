@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -63,9 +64,13 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-md font-bold">
-            开
-          </div>
+          <Image
+            src="/kaiyuanshe-logo.png"
+            alt="开源社 Logo"
+            width={32}
+            height={32}
+            className="h-8 w-auto"
+          />
           <span className="font-bold text-xl">开源社</span>
         </Link>
 
@@ -111,9 +116,13 @@ export function Header() {
           <SheetContent side="right" className="w-80">
             <div className="flex items-center justify-between mb-6">
               <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-                <div className="flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-md font-bold">
-                  开
-                </div>
+                <Image
+                  src="/kaiyuanshe-logo.png"
+                  alt="开源社 Logo"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto"
+                />
                 <span className="font-bold text-xl">开源社</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
