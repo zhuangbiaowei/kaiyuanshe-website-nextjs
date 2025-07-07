@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -56,14 +55,6 @@ const tracks = [
   { name: '社区治理', description: '开源社区建设和管理', icon: Users }
 ]
 
-const sponsors = [
-  { name: '华为', logo: '/logos/huawei.png', level: '钻石' },
-  { name: '腾讯', logo: '/logos/tencent.png', level: '钻石' },
-  { name: '阿里巴巴', logo: '/logos/alibaba.png', level: '钻石' },
-  { name: '字节跳动', logo: '/logos/bytedance.png', level: '黄金' },
-  { name: '百度', logo: '/logos/baidu.png', level: '黄金' },
-  { name: '京东', logo: '/logos/jd.png', level: '黄金' }
-]
 
 export default function COSConPage() {
   return (

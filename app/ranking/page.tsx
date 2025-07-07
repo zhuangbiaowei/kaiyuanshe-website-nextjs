@@ -91,7 +91,7 @@ export default function RankingPage() {
               中国开源人物榜单
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              展示中国开源领域的杰出人物和他们的卓越贡献，让开源世界的超级"码"丽被更多人知道
+              展示中国开源领域的杰出人物和他们的卓越贡献，让开源世界的超级&ldquo;码&rdquo;丽被更多人知道
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

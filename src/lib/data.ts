@@ -1,4 +1,4 @@
-import { Project, Activity, News, Person, Partner, Organization } from '@/types'
+import { Project, Activity, News, Person, Organization } from '@/types'
 
 // 静态数据获取函数
 export async function getProjects(): Promise<Project[]> {

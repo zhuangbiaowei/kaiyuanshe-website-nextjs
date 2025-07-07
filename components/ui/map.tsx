@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 
 // 动态导入 Leaflet 以避免 SSR 问题

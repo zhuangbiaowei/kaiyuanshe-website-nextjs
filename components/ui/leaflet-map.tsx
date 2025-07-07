@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { MapLocation } from './map'
 
 // 由于Leaflet在服务端渲染时会出现问题，我们创建一个简化版本
@@ -13,21 +13,72 @@ interface LeafletMapProps {
 export default function LeafletMap({ locations }: LeafletMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    // 这里会是实际的 Leaflet 地图初始化代码
-    // 现在我们创建一个模拟的地图界面
-    if (mapRef.current && typeof window !== 'undefined') {
-      // 实际实现中会使用：
-      // import L from 'leaflet'
-      // const map = L.map(mapRef.current).setView([39.9042, 116.4074], 5)
-      // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
-      
-      // 现在我们创建一个简化的视觉效果
-      createMockMap()
+  const getCityPosition = useCallback((cityName: string): { x: number; y: number } => {
+    // 模拟中国主要城市的相对位置
+    const cityPositions: Record<string, { x: number; y: number }> = {
+      '北京': { x: 60, y: 25 },
+      '上海': { x: 75, y: 50 },
+      '深圳': { x: 65, y: 75 },
+      '成都': { x: 40, y: 55 },
+      '杭州': { x: 72, y: 48 },
+      '广州': { x: 63, y: 72 },
+      '武汉': { x: 58, y: 52 },
+      '西安': { x: 50, y: 42 },
+      '南京': { x: 70, y: 45 },
+      '台北': { x: 78, y: 68 }
     }
-  }, [locations])
+    
+    return cityPositions[cityName] || { x: 50, y: 50 }
+  }, [])
 
-  const createMockMap = () => {
+  const createControlButton = useCallback((text: string, title: string): HTMLElement => {
+    const button = document.createElement('button')
+    button.className = 'w-8 h-8 bg-white border border-gray-300 rounded shadow hover:bg-gray-50 flex items-center justify-center font-bold text-gray-600'
+    button.textContent = text
+    button.title = title
+    button.addEventListener('click', (e) => {
+      e.stopPropagation()
+      // 这里可以添加实际的缩放功能
+    })
+    return button
+  }, [])
+
+  const showLocationDetails = useCallback((location: MapLocation) => {
+    // 创建弹出窗口显示位置详情
+    const popup = document.createElement('div')
+    popup.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'
+    popup.addEventListener('click', () => popup.remove())
+    
+    const content = document.createElement('div')
+    content.className = 'bg-white rounded-lg p-6 max-w-md mx-4 max-h-96 overflow-y-auto'
+    content.addEventListener('click', (e) => e.stopPropagation())
+    
+    content.innerHTML = `
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-bold">${location.name}</h3>
+        <button class="text-gray-400 hover:text-gray-600" onclick="this.closest('.fixed').remove()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="text-gray-600 mb-4">活动数量: ${location.count}</p>
+      <div class="space-y-2">
+        <h4 class="font-semibold">最近活动:</h4>
+        ${location.activities.slice(0, 3).map(activity => `
+          <div class="border-l-2 border-primary pl-3 py-1">
+            <div class="font-medium text-sm">${activity.title}</div>
+            <div class="text-xs text-gray-500">${activity.date} · ${activity.type}</div>
+          </div>
+        `).join('')}
+      </div>
+    `
+    
+    popup.appendChild(content)
+    document.body.appendChild(popup)
+  }, [])
+
+  const createMockMap = useCallback(() => {
     if (!mapRef.current) return
 
     // 清空容器
@@ -45,7 +96,7 @@ export default function LeafletMap({ locations }: LeafletMapProps) {
     `
     
     // 添加位置标记
-    locations.forEach((location, index) => {
+    locations.forEach((location) => {
       const marker = document.createElement('div')
       marker.className = 'absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group'
       
@@ -86,72 +137,21 @@ export default function LeafletMap({ locations }: LeafletMapProps) {
     mapContainer.appendChild(controls)
     
     mapRef.current.appendChild(mapContainer)
-  }
+  }, [locations, getCityPosition, showLocationDetails, createControlButton])
 
-  const getCityPosition = (cityName: string): { x: number; y: number } => {
-    // 模拟中国主要城市的相对位置
-    const cityPositions: Record<string, { x: number; y: number }> = {
-      '北京': { x: 60, y: 25 },
-      '上海': { x: 75, y: 50 },
-      '深圳': { x: 65, y: 75 },
-      '成都': { x: 40, y: 55 },
-      '杭州': { x: 72, y: 48 },
-      '广州': { x: 63, y: 72 },
-      '武汉': { x: 58, y: 52 },
-      '西安': { x: 50, y: 42 },
-      '南京': { x: 70, y: 45 },
-      '台北': { x: 78, y: 68 }
+  useEffect(() => {
+    // 这里会是实际的 Leaflet 地图初始化代码
+    // 现在我们创建一个模拟的地图界面
+    if (mapRef.current && typeof window !== 'undefined') {
+      // 实际实现中会使用：
+      // import L from 'leaflet'
+      // const map = L.map(mapRef.current).setView([39.9042, 116.4074], 5)
+      // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+      
+      // 现在我们创建一个简化的视觉效果
+      createMockMap()
     }
-    
-    return cityPositions[cityName] || { x: 50, y: 50 }
-  }
-
-  const createControlButton = (text: string, title: string): HTMLElement => {
-    const button = document.createElement('button')
-    button.className = 'w-8 h-8 bg-white border border-gray-300 rounded shadow hover:bg-gray-50 flex items-center justify-center font-bold text-gray-600'
-    button.textContent = text
-    button.title = title
-    button.addEventListener('click', (e) => {
-      e.stopPropagation()
-      // 这里可以添加实际的缩放功能
-    })
-    return button
-  }
-
-  const showLocationDetails = (location: MapLocation) => {
-    // 创建弹出窗口显示位置详情
-    const popup = document.createElement('div')
-    popup.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'
-    popup.addEventListener('click', () => popup.remove())
-    
-    const content = document.createElement('div')
-    content.className = 'bg-white rounded-lg p-6 max-w-md mx-4 max-h-96 overflow-y-auto'
-    content.addEventListener('click', (e) => e.stopPropagation())
-    
-    content.innerHTML = `
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-bold">${location.name}</h3>
-        <button class="text-gray-400 hover:text-gray-600" onclick="this.closest('.fixed').remove()">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <p class="text-gray-600 mb-4">活动数量: ${location.count}</p>
-      <div class="space-y-2">
-        <h4 class="font-semibold">最近活动:</h4>
-        ${location.activities.slice(0, 3).map(activity => `
-          <div class="border-l-2 border-primary pl-3 py-1">
-            <div class="font-medium text-sm">${activity.title}</div>
-            <div class="text-xs text-gray-500">${activity.date} · ${activity.type}</div>
-          </div>
-        `).join('')}
-      </div>
-    `
-    
-    popup.appendChild(content)
-    document.body.appendChild(popup)
-  }
+  }, [createMockMap])
 
   return (
     <div ref={mapRef} className="w-full h-full min-h-[400px] rounded-lg overflow-hidden">

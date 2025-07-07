@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import { 
   Calendar, 
-  User, 
   Clock, 
   ArrowLeft, 
   Share2, 
