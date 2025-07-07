@@ -1,0 +1,122 @@
+{
+  "board": [
+    {
+      "id": "liu-tianqi",
+      "name": "刘天栋",
+      "title": "理事长",
+      "avatar": "/images/members/liu-tianqi.jpg",
+      "bio": "开源社创始人，Apache软件基金会成员，致力于推动亚太地区开源软件发展。",
+      "company": "开源社",
+      "position": "创始人",
+      "github": "",
+      "linkedin": "",
+      "email": "tianqi@kaiyuanshe.cn",
+      "joinDate": "2014-10-01",
+      "specialties": ["开源治理", "社区建设", "项目孵化"],
+      "achievements": [
+        "创立开源社",
+        "Apache软件基金会首位华人董事",
+        "推动中国开源年会举办"
+      ]
+    },
+    {
+      "id": "wu-xiaofeng",
+      "name": "吴晓峰",
+      "title": "副理事长",
+      "avatar": "/images/members/wu-xiaofeng.jpg",
+      "bio": "资深开源专家，致力于开源项目商业化和生态建设。",
+      "company": "某知名科技公司",
+      "position": "技术总监",
+      "github": "",
+      "linkedin": "",
+      "email": "xiaofeng@kaiyuanshe.cn",
+      "joinDate": "2015-03-15",
+      "specialties": ["开源商业化", "技术架构", "团队管理"],
+      "achievements": [
+        "主导多个开源项目商业化",
+        "技术团队建设专家",
+        "开源社区活跃贡献者"
+      ]
+    }
+  ],
+  "executive": [
+    {
+      "id": "zhang-san",
+      "name": "张三",
+      "title": "执行委员",
+      "avatar": "/images/members/zhang-san.jpg",
+      "bio": "技术专家，专注于云原生和容器技术，多个开源项目核心贡献者。",
+      "company": "云原生公司",
+      "position": "首席架构师",
+      "github": "https://github.com/zhangsan",
+      "linkedin": "",
+      "email": "zhangsan@kaiyuanshe.cn",
+      "joinDate": "2016-06-01",
+      "specialties": ["云原生", "容器技术", "微服务"],
+      "achievements": [
+        "Kubernetes 核心贡献者",
+        "CNCF 项目维护者",
+        "技术大会演讲者"
+      ]
+    },
+    {
+      "id": "li-si",
+      "name": "李四",
+      "title": "执行委员",
+      "avatar": "/images/members/li-si.jpg",
+      "bio": "AI领域专家，专注于机器学习开源框架开发和推广。",
+      "company": "AI科技",
+      "position": "研究总监",
+      "github": "https://github.com/lisi",
+      "linkedin": "",
+      "email": "lisi@kaiyuanshe.cn",
+      "joinDate": "2017-01-20",
+      "specialties": ["机器学习", "深度学习", "AI框架"],
+      "achievements": [
+        "TensorFlow 贡献者",
+        "PyTorch 社区维护者",
+        "AI开源项目推广者"
+      ]
+    }
+  ],
+  "members": [
+    {
+      "id": "wang-wu",
+      "name": "王五",
+      "title": "正式成员",
+      "avatar": "/images/members/wang-wu.jpg",
+      "bio": "前端技术专家，专注于现代前端框架和工具链开发。",
+      "company": "前端科技",
+      "position": "前端架构师",
+      "github": "https://github.com/wangwu",
+      "linkedin": "",
+      "email": "wangwu@kaiyuanshe.cn",
+      "joinDate": "2018-05-10",
+      "specialties": ["React", "Vue", "前端工程化"],
+      "achievements": [
+        "Vue.js 核心团队成员",
+        "开源工具作者",
+        "技术博客作者"
+      ]
+    },
+    {
+      "id": "zhao-liu",
+      "name": "赵六",
+      "title": "正式成员",
+      "avatar": "/images/members/zhao-liu.jpg",
+      "bio": "后端开发专家，专注于高性能系统设计和数据库优化。",
+      "company": "数据库公司",
+      "position": "后端工程师",
+      "github": "https://github.com/zhaoliu",
+      "linkedin": "",
+      "email": "zhaoliu@kaiyuanshe.cn",
+      "joinDate": "2019-02-28",
+      "specialties": ["数据库", "高并发", "系统设计"],
+      "achievements": [
+        "MySQL 优化专家",
+        "Redis 贡献者",
+        "系统架构设计师"
+      ]
+    }
+  ]
+}

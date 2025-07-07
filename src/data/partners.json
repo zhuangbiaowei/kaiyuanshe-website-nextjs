@@ -1,0 +1,199 @@
+{
+  "platinum": [
+    {
+      "id": "huawei",
+      "name": "华为",
+      "logo": "/images/partners/huawei.png",
+      "website": "https://www.huawei.com",
+      "description": "全球领先的ICT基础设施和智能终端提供商，开源社战略合作伙伴。",
+      "partnership": {
+        "level": "钻石",
+        "startDate": "2016-01-01",
+        "collaborations": [
+          "COSCon 钻石赞助商",
+          "开源项目孵化支持",
+          "技术专家分享",
+          "开源人才培养"
+        ]
+      },
+      "contributions": [
+        "鸿蒙操作系统开源",
+        "openEuler 操作系统",
+        "MindSpore AI框架",
+        "openGauss 数据库"
+      ],
+      "contact": {
+        "email": "opensource@huawei.com",
+        "person": "华为开源团队"
+      }
+    },
+    {
+      "id": "tencent",
+      "name": "腾讯",
+      "logo": "/images/partners/tencent.png",
+      "website": "https://opensource.tencent.com",
+      "description": "中国领先的互联网科技公司，积极参与开源生态建设。",
+      "partnership": {
+        "level": "钻石",
+        "startDate": "2017-06-01",
+        "collaborations": [
+          "COSCon 钻石赞助商",
+          "开源项目展示",
+          "技术分享会",
+          "开源社区建设"
+        ]
+      },
+      "contributions": [
+        "腾讯开源平台",
+        "WeChat 小程序框架",
+        "Tencent Cloud Native",
+        "AI 开源项目"
+      ],
+      "contact": {
+        "email": "opensource@tencent.com",
+        "person": "腾讯开源团队"
+      }
+    }
+  ],
+  "gold": [
+    {
+      "id": "alibaba",
+      "name": "阿里巴巴",
+      "logo": "/images/partners/alibaba.png",
+      "website": "https://opensource.alibaba.com",
+      "description": "中国最大的电商平台，在云计算和开源技术方面贡献突出。",
+      "partnership": {
+        "level": "黄金",
+        "startDate": "2018-03-01",
+        "collaborations": [
+          "COSCon 黄金赞助商",
+          "开源项目贡献",
+          "技术交流活动",
+          "开发者社区建设"
+        ]
+      },
+      "contributions": [
+        "Apache Dubbo",
+        "Apache RocketMQ",
+        "Alibaba Cloud Native",
+        "Dragonfly"
+      ],
+      "contact": {
+        "email": "opensource@alibaba.com",
+        "person": "阿里巴巴开源团队"
+      }
+    },
+    {
+      "id": "bytedance",
+      "name": "字节跳动",
+      "logo": "/images/partners/bytedance.png",
+      "website": "https://opensource.bytedance.com",
+      "description": "全球化互联网科技公司，在开源领域投入巨大。",
+      "partnership": {
+        "level": "黄金",
+        "startDate": "2019-09-01",
+        "collaborations": [
+          "COSCon 黄金赞助商",
+          "开源技术分享",
+          "人才交流项目",
+          "开源项目支持"
+        ]
+      },
+      "contributions": [
+        "ByteHouse 数据仓库",
+        "CloudWeGo 微服务框架",
+        "Semi Design 设计系统",
+        "前端开源工具"
+      ],
+      "contact": {
+        "email": "opensource@bytedance.com",
+        "person": "字节跳动开源团队"
+      }
+    }
+  ],
+  "silver": [
+    {
+      "id": "baidu",
+      "name": "百度",
+      "logo": "/images/partners/baidu.png",
+      "website": "https://opensource.baidu.com",
+      "description": "中国领先的AI公司，在人工智能开源领域贡献巨大。",
+      "partnership": {
+        "level": "白银",
+        "startDate": "2018-11-01",
+        "collaborations": [
+          "COSCon 白银赞助商",
+          "AI技术分享",
+          "开源项目展示",
+          "技术社区交流"
+        ]
+      },
+      "contributions": [
+        "PaddlePaddle 深度学习框架",
+        "Apollo 自动驾驶平台",
+        "ERNIE 自然语言处理",
+        "百度开源项目"
+      ],
+      "contact": {
+        "email": "opensource@baidu.com",
+        "person": "百度开源团队"
+      }
+    }
+  ],
+  "community": [
+    {
+      "id": "apache-china",
+      "name": "Apache 软件基金会中国社区",
+      "logo": "/images/partners/apache.png",
+      "website": "https://apache.org",
+      "description": "Apache 软件基金会在中国的官方社区，推动Apache项目在中国的发展。",
+      "partnership": {
+        "level": "社区",
+        "startDate": "2015-01-01",
+        "collaborations": [
+          "联合举办技术活动",
+          "Apache 项目推广",
+          "开源文化传播",
+          "技术培训合作"
+        ]
+      },
+      "contributions": [
+        "Apache 项目本地化",
+        "技术培训课程",
+        "开源文化推广",
+        "社区建设支持"
+      ],
+      "contact": {
+        "email": "china@apache.org",
+        "person": "Apache 中国社区"
+      }
+    },
+    {
+      "id": "linux-china",
+      "name": "Linux 中国",
+      "logo": "/images/partners/linux-china.png",
+      "website": "https://linux.cn",
+      "description": "中国最大的Linux和开源技术社区，致力于Linux技术推广。",
+      "partnership": {
+        "level": "社区",
+        "startDate": "2016-05-01",
+        "collaborations": [
+          "内容合作发布",
+          "技术文章翻译",
+          "社区活动推广",
+          "开源新闻报道"
+        ]
+      },
+      "contributions": [
+        "Linux技术文章",
+        "开源新闻报道",
+        "技术翻译服务",
+        "社区活动支持"
+      ],
+      "contact": {
+        "email": "contact@linux.cn",
+        "person": "Linux中国编辑部"
+      }
+    }
+  ]
+}
